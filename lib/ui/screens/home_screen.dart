@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-// ignore_for_file: prefer_const_literals_to_create_immutables
+import 'package:bookshop/ui/widgets/book_card.dart';
 
 import '../../shared/theme.dart';
 import '../widgets/author_avatar.dart';
@@ -26,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               style: blackHeadingTextStyle.copyWith(
                   fontSize: 32, fontWeight: bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Text(
@@ -49,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             margin: EdgeInsets.only(
               left: defaultMargin,
               top: 52,
-              bottom: 8,
+              bottom: 16,
             ),
             child: Text(
               'Popular List',
@@ -69,8 +67,8 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   width: 216,
                   height: 128,
-                  margin: EdgeInsets.only(right: 16),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(right: 16),
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/image_list1.png'),
                     ),
@@ -79,8 +77,8 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   width: 216,
                   height: 128,
-                  margin: EdgeInsets.only(right: 16),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(right: 16),
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/image_list2.png'),
                     ),
@@ -117,7 +115,7 @@ class HomeScreen extends StatelessWidget {
               left: defaultMargin,
             ),
             child: Row(
-              children: [
+              children: const [
                 AuthorAvatar(
                   imageUrl: 'assets/avatar6.png',
                   name: 'Victoria\nEdwards',
@@ -149,16 +147,63 @@ class HomeScreen extends StatelessWidget {
       );
     }
 
+    Widget latestArrivals() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              left: defaultMargin,
+              top: 40,
+              bottom: 16,
+            ),
+            child: Text(
+              'Latest Arrivals',
+              style: blackHeadingTextStyle.copyWith(
+                fontSize: 20,
+                fontWeight: bold,
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.only(
+              left: defaultMargin,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                BookCard(
+                  imageUrl: 'assets/image_arrival1.png',
+                  bookName: 'Conversations\nwith Friends',
+                  author: 'Sally Rooney',
+                ),
+                BookCard(
+                    imageUrl: 'assets/image_arrival2.png',
+                    bookName: 'The world doesn’t \nrequire you',
+                    author: 'Rion Amilcar Scott,'),
+                BookCard(
+                  imageUrl: 'assets/image_arrival3.png',
+                  bookName: 'The last\nwidow',
+                  author: 'Karin Slaughter',
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: kWhiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF4E3737).withOpacity(0.15),
-                offset: Offset(0, 4),
+                color: const Color(0xFF4E3737).withOpacity(0.15),
+                offset: const Offset(0, 4),
                 blurRadius: 16,
               )
             ],
@@ -210,6 +255,7 @@ class HomeScreen extends StatelessWidget {
             header(),
             popularList(),
             authors(),
+            latestArrivals(),
           ],
         ),
       ),

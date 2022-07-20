@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
@@ -17,7 +15,7 @@ class AuthorAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         right: 16,
       ),
       child: Column(
@@ -25,7 +23,7 @@ class AuthorAvatar extends StatelessWidget {
           Container(
             width: 48,
             height: 48,
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               bottom: 4,
             ),
             decoration: BoxDecoration(
