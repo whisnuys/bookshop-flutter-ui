@@ -35,6 +35,9 @@ TextStyle whiteTextStyle = GoogleFonts.montserrat(
 TextStyle blueTextStyle = GoogleFonts.montserrat(
   color: kBlueColor,
 );
+TextStyle babyBlueTextStyle = GoogleFonts.montserrat(
+  color: kBabyBlueColor,
+);
 TextStyle redTextStyle = GoogleFonts.montserrat(
   color: kRedColor,
 );
