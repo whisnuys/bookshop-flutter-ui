@@ -1,6 +1,7 @@
 import 'package:bookshop/ui/widgets/book_card.dart';
+import 'package:bookshop/ui/widgets/custom_appbar.dart';
 
-import '../../shared/theme.dart';
+import '../../theme.dart';
 import '../widgets/author_avatar.dart';
 import 'package:flutter/material.dart';
 
@@ -171,6 +172,7 @@ class HomeScreen extends StatelessWidget {
               left: defaultMargin,
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: const [
                 BookCard(
@@ -181,7 +183,7 @@ class HomeScreen extends StatelessWidget {
                 BookCard(
                     imageUrl: 'assets/image_arrival2.png',
                     bookName: 'The world doesn’t \nrequire you',
-                    author: 'Rion Amilcar Scott,'),
+                    author: 'Rion Amilcar Scott'),
                 BookCard(
                   imageUrl: 'assets/image_arrival3.png',
                   bookName: 'The last\nwidow',
@@ -201,55 +203,15 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: kWhiteColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xFF4E3737).withOpacity(0.15),
-                offset: const Offset(0, 4),
-                blurRadius: 16,
-              )
-            ],
-          ),
-          child: AppBar(
-            title: Container(
-              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Home',
-                    style: greyOldTextStyle.copyWith(
-                        fontSize: 16, fontWeight: bold),
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/icon_search.png',
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/icon_basket.png',
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+        child: CustomAppBar(
+          leading: Center(
+            child: Text(
+              'Home',
+              style: greyOldTextStyle.copyWith(fontSize: 16, fontWeight: bold),
             ),
-            elevation: 0,
-            backgroundColor: kWhiteColor,
-            centerTitle: false,
-            titleSpacing: 0,
           ),
+          centerTitle: false,
+          title: '',
         ),
       ),
       body: SafeArea(

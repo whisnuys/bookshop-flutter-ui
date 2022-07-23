@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:animations/animations.dart';
+
 import '../../cubit/screen_cubit.dart';
-import '../../shared/theme.dart';
+import '../../theme.dart';
 import './browse_screen.dart';
 import './home_screen.dart';
 import './profile_screen.dart';
-import './wishlist_screen.dart';
 import '../widgets/custom_bottomnav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,8 +23,6 @@ class MainScreen extends StatelessWidget {
         case 1:
           return const BrowseScreen();
         case 2:
-          return const WishlistScreen();
-        case 3:
           return const ProfileScreen();
         default:
           return const HomeScreen();
@@ -62,11 +61,6 @@ class MainScreen extends StatelessWidget {
               ),
               CustomBottomNavItem(
                 index: 2,
-                imageUrl: 'assets/icon_love.png',
-                title: 'wishlist',
-              ),
-              CustomBottomNavItem(
-                index: 3,
                 imageUrl: 'assets/icon_user.png',
                 title: 'profile',
               ),
@@ -82,7 +76,18 @@ class MainScreen extends StatelessWidget {
           backgroundColor: kWhiteColor,
           body: Stack(
             children: [
-              buildContent(state),
+              PageTransitionSwitcher(
+                transitionBuilder:
+                    (child, primaryAnimation, secondaryAnimation) {
+                  return SharedAxisTransition(
+                    animation: primaryAnimation,
+                    secondaryAnimation: secondaryAnimation,
+                    transitionType: SharedAxisTransitionType.scaled,
+                    child: child,
+                  );
+                },
+                child: buildContent(state),
+              ),
               customBottomNav(),
             ],
           ),
