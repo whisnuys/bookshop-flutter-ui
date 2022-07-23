@@ -1,7 +1,7 @@
 import 'package:bookshop/cubit/screen_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../shared/theme.dart';
+import '../../theme.dart';
 
 class CustomBottomNavItem extends StatelessWidget {
   final int index;

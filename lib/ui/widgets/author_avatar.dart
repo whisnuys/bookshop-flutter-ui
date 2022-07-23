@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/theme.dart';
+import '../../theme.dart';
 
 class AuthorAvatar extends StatelessWidget {
   final String imageUrl;
